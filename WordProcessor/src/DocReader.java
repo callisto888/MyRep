@@ -16,17 +16,19 @@ public class DocReader {
 			FileInputStream fis = new FileInputStream(file.getAbsolutePath());
 
 			XWPFDocument document = new XWPFDocument(fis);
-
+			HWPFDocument doc = new HWPFDocument (fis); 
+			
 			List<XWPFParagraph> paragraphs = document.getParagraphs();
 
 			FabricStyle fs = new FabricStyle();
 			Char ch;
 			for (XWPFParagraph para : paragraphs) {
 				r = para.createRun();
-				System.out.println(para.getText());
-				char[] charsFromStrings = para.getText().toCharArray();
+				System.out.println(r.text());
+				char[] charsFromStrings = r.text().toCharArray();
 				for (int i = 0; i < charsFromStrings.length; i++) {
 					ch = new Char(charsFromStrings[i], fs.getStyle(String.valueOf(charsFromStrings[i])));
+					System.out.println(charsFromStrings[i]);
 					System.out.println(ch.toString());
 				}
 			}

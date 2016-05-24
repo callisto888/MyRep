@@ -8,8 +8,8 @@ public class FabricStyle {
 		if(styles.containsKey(key))
 			return styles.get(key);
 		else{
-			
-			Style newStyle = new Style((DocReader.r).getFontFamily(), (DocReader.r).getFontSize(), (DocReader.r).getColor());
+			System.out.println((DocReader.r).getFontName());
+			Style newStyle = new Style((DocReader.r).getFontName(), (DocReader.r).getFontSize(), (DocReader.r).getColor());
 			styles.put(key, newStyle);
 			return newStyle;
 		}
